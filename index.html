@@ -1,0 +1,4152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Gels Creation - Creative products, custom creations and gift ideas."
+  >
+
+  <meta name="theme-color" content="#a855f7">
+
+  <title>Gels Creation | Creative. Custom. Made with Love.</title>
+
+  <style>
+    /* =========================================================
+       GELS CREATION
+       COMPLETE ONE-FILE WEBSITE
+       HTML + CSS + JAVASCRIPT
+       ========================================================= */
+
+    :root {
+      --bg: #fffaff;
+      --surface: #ffffff;
+      --surface-2: #faf1ff;
+
+      --text: #24182b;
+      --muted: #766a7d;
+
+      --primary: #a855f7;
+      --primary-dark: #7c3aed;
+      --pink: #f472b6;
+
+      --border: #eadff0;
+
+      --success: #22c55e;
+
+      --shadow:
+        0 20px 60px rgba(91, 35, 110, 0.12);
+
+      --radius: 22px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #130f17;
+      --surface: #1d1722;
+      --surface-2: #271d2e;
+
+      --text: #fff5ff;
+      --muted: #bcaec1;
+
+      --primary: #c084fc;
+      --primary-dark: #a855f7;
+      --pink: #f9a8d4;
+
+      --border: #3b3041;
+
+      --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================================================
+       ANNOUNCEMENT
+       ========================================================= */
+
+    .announcement {
+      background: #24182b;
+      color: white;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(255, 250, 255, 0.88);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    [data-theme="dark"] .site-header {
+      background: rgba(19, 15, 23, 0.88);
+    }
+
+    .nav {
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      margin-right: auto;
+    }
+
+    .brand-logo {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 14px;
+
+      display: grid;
+      place-items: center;
+
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--pink)
+        );
+
+      box-shadow:
+        0 10px 25px rgba(168, 85, 247, 0.25);
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .brand-tagline {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn,
+    .cart-btn,
+    .menu-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+
+      height: 42px;
+      border-radius: 12px;
+
+      transition: 0.2s;
+    }
+
+    .icon-btn {
+      width: 42px;
+    }
+
+    .icon-btn:hover,
+    .cart-btn:hover,
+    .menu-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .cart-btn {
+      padding: 0 13px;
+      font-weight: 800;
+    }
+
+    .cart-count {
+      display: inline-grid;
+      place-items: center;
+
+      min-width: 20px;
+      height: 20px;
+
+      margin-left: 5px;
+
+      border-radius: 50%;
+
+      color: white;
+      background: var(--primary);
+
+      font-size: 10px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      font-size: 20px;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 90px 0 80px;
+
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(216, 180, 254, 0.45),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(251, 207, 232, 0.5),
+          transparent 30%
+        );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      align-items: center;
+
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+
+      color: var(--primary);
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      margin: 15px 0 20px;
+
+      font-size:
+        clamp(44px, 6vw, 76px);
+
+      line-height: 1.02;
+
+      letter-spacing: -4px;
+    }
+
+    .gradient-text {
+      color: transparent;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary-dark),
+          var(--pink)
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-description {
+      max-width: 590px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .btn {
+      min-height: 48px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      padding: 12px 20px;
+
+      border-radius: 14px;
+
+      border: 0;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+
+      box-shadow:
+        0 12px 30px rgba(124, 58, 237, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 35px;
+
+      margin-top: 35px;
+    }
+
+    .hero-trust strong {
+      display: block;
+
+      font-size: 18px;
+    }
+
+    .hero-trust span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       HERO PRODUCT ART
+       ========================================================= */
+
+    .hero-art {
+      height: 470px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .product-stage {
+      width: 370px;
+      height: 370px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .stage-circle {
+      position: absolute;
+      inset: 25px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #f3d8ff,
+          #ffdce9
+        );
+
+      box-shadow:
+        inset 0 0 70px rgba(255,255,255,0.8),
+        0 30px 60px rgba(157, 84, 201, 0.18);
+    }
+
+    .fake-product {
+      width: 190px;
+      height: 235px;
+
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border: 7px solid white;
+
+      border-radius:
+        30px 30px 40px 40px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #efd8ff
+        );
+
+      box-shadow:
+        0 25px 35px rgba(91, 35, 102, 0.2);
+
+      transform: rotate(-7deg);
+    }
+
+    .fake-product::before {
+      content: "";
+
+      position: absolute;
+
+      top: -32px;
+
+      width: 105px;
+      height: 38px;
+
+      border-radius:
+        12px 12px 5px 5px;
+
+      background: #8b5cf6;
+    }
+
+    .fake-label {
+      padding: 15px 22px;
+
+      border-radius: 15px;
+
+      background: rgba(255,255,255,0.8);
+
+      color: var(--primary-dark);
+
+      text-align: center;
+
+      font-size: 16px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .fake-label small {
+      font-size: 8px;
+      letter-spacing: 3px;
+    }
+
+    .fake-flower {
+      margin-top: 10px;
+
+      color: var(--pink);
+
+      font-size: 45px;
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 15px 17px;
+
+      border: 1px solid white;
+
+      border-radius: 18px;
+
+      background: var(--surface);
+
+      box-shadow: var(--shadow);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .floating-card span {
+      color: var(--pink);
+      font-size: 25px;
+    }
+
+    .card-one {
+      top: 65px;
+      left: 15px;
+
+      transform: rotate(-8deg);
+    }
+
+    .card-two {
+      right: 5px;
+      bottom: 55px;
+
+      transform: rotate(7deg);
+    }
+
+    /* =========================================================
+       STATS
+       ========================================================= */
+
+    .stats-strip {
+      background: var(--surface);
+
+      border-block: 1px solid var(--border);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 23px 10px;
+
+      text-align: center;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .stat span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
+
+    .section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .story-content h2,
+    .custom-content h2,
+    .contact-content h2,
+    .cta h2 {
+      margin: 8px 0 12px;
+
+      font-size:
+        clamp(30px, 4vw, 48px);
+
+      line-height: 1.1;
+
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      max-width: 700px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .text-link {
+      color: var(--primary);
+
+      white-space: nowrap;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       FILTERS
+       ========================================================= */
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 24px;
+    }
+
+    .filter {
+      padding: 9px 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 30px;
+
+      background: var(--surface);
+      color: var(--muted);
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .filter.active {
+      background: var(--text);
+      color: var(--bg);
+
+      border-color: var(--text);
+    }
+
+    /* =========================================================
+       PRODUCTS
+       ========================================================= */
+
+    .product-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .product-card {
+      position: relative;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: var(--surface);
+
+      transition: 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      height: 220px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--p1),
+          var(--p2)
+        );
+
+      font-size: 70px;
+
+      cursor: pointer;
+    }
+
+    .product-badge {
+      position: absolute;
+
+      top: 12px;
+      left: 12px;
+
+      padding: 5px 9px;
+
+      border-radius: 20px;
+
+      background: white;
+
+      color: var(--primary-dark);
+
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .product-info {
+      padding: 17px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 4px;
+
+      font-size: 15px;
+    }
+
+    .product-info p {
+      min-height: 38px;
+
+      margin-bottom: 14px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-weight: 900;
+    }
+
+    .add-btn {
+      padding: 8px 11px;
+
+      border: 0;
+
+      border-radius: 10px;
+
+      background: var(--surface-2);
+      color: var(--primary-dark);
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .add-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .story {
+      background: var(--surface-2);
+    }
+
+    .story-grid {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      align-items: center;
+
+      gap: 80px;
+    }
+
+    .story-art {
+      height: 420px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
+      border-radius: 35px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ead3ff,
+          #ffdbe9
+        );
+    }
+
+    .story-logo {
+      width: 190px;
+      height: 190px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: white;
+
+      color: var(--primary-dark);
+
+      text-align: center;
+
+      font-size: 18px;
+      font-weight: 900;
+
+      letter-spacing: 4px;
+
+      box-shadow:
+        0 25px 50px rgba(124,58,237,0.15);
+    }
+
+    .story-orb {
+      position: absolute;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.4);
+    }
+
+    .orb-one {
+      width: 180px;
+      height: 180px;
+
+      top: -70px;
+      right: -50px;
+    }
+
+    .orb-two {
+      width: 110px;
+      height: 110px;
+
+      left: -20px;
+      bottom: -35px;
+    }
+
+    .story-star,
+    .story-heart {
+      position: absolute;
+
+      color: white;
+
+      font-size: 40px;
+    }
+
+    .story-star {
+      top: 55px;
+      left: 50px;
+    }
+
+    .story-heart {
+      right: 60px;
+      bottom: 60px;
+    }
+
+    .story-content p {
+      color: var(--muted);
+
+      margin-bottom: 15px;
+    }
+
+    .check-list {
+      display: grid;
+
+      gap: 8px;
+
+      margin-top: 25px;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       CUSTOM ORDER
+       ========================================================= */
+
+    .custom-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 70px;
+
+      align-items: start;
+    }
+
+    .custom-content > p {
+      color: var(--muted);
+    }
+
+    .process {
+      display: grid;
+
+      gap: 17px;
+
+      margin-top: 30px;
+    }
+
+    .process-item {
+      display: flex;
+
+      gap: 14px;
+    }
+
+    .process-number {
+      width: 35px;
+      height: 35px;
+
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background: var(--surface-2);
+      color: var(--primary-dark);
+
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .process-item strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .process-item small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       FORM
+       ========================================================= */
+
+    .order-form {
+      padding: 28px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 25px;
+
+      background: var(--surface);
+
+      box-shadow: var(--shadow);
+    }
+
+    .order-form h3 {
+      margin-bottom: 20px;
+
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 6px;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .form-control {
+      width: 100%;
+
+      padding: 11px 12px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      outline: none;
+
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    .form-row {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .form-note {
+      display: block;
+
+      margin-top: 12px;
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       FAQ
+       ========================================================= */
+
+    .faq-section {
+      background: var(--surface-2);
+    }
+
+    .narrow {
+      max-width: 800px;
+    }
+
+    .centered {
+      display: block;
+      text-align: center;
+    }
+
+    .faq-list {
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .faq-item {
+      padding: 17px 20px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      background: var(--surface);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .faq-item p {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .cta {
+      padding: 60px 0;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #7c3aed,
+          #c026d3
+        );
+    }
+
+    .cta-inner {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .cta h2 {
+      margin-bottom: 0;
+    }
+
+    .cta .eyebrow {
+      color: #fce7f3;
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      gap: 60px;
+
+      align-items: center;
+    }
+
+    .contact-content > p {
+      color: var(--muted);
+    }
+
+    .contact-cards {
+      display: grid;
+
+      gap: 10px;
+
+      margin-top: 25px;
+    }
+
+    .contact-card {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      padding: 14px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      background: var(--surface);
+
+      transition: 0.2s;
+    }
+
+    .contact-card:hover {
+      transform: translateX(4px);
+
+      border-color: var(--primary);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--pink)
+        );
+
+      font-weight: 900;
+    }
+
+    .contact-card div {
+      flex: 1;
+    }
+
+    .contact-card strong,
+    .contact-card small {
+      display: block;
+    }
+
+    .contact-card strong {
+      font-size: 13px;
+    }
+
+    .contact-card small {
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .contact-card > b {
+      color: var(--primary);
+    }
+
+    .contact-note {
+      min-height: 300px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #f2ddff,
+          #ffe0ed
+        );
+
+      text-align: center;
+    }
+
+    .mini-logo {
+      width: 65px;
+      height: 65px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 20px;
+
+      color: white;
+
+      font-size: 28px;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--pink)
+        );
+    }
+
+    .contact-note h3 {
+      margin-top: 18px;
+
+      color: #32153f;
+
+      font-size: 24px;
+    }
+
+    .contact-note p {
+      color: #6d5276;
+
+      font-size: 12px;
+    }
+
+    .social-row {
+      display: flex;
+
+      gap: 8px;
+
+      margin-top: 20px;
+    }
+
+    .social-row a {
+      padding: 9px 13px;
+
+      border-radius: 10px;
+
+      background: rgba(255,255,255,0.7);
+
+      color: #7c3aed;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 25px 0;
+
+      border-top: 1px solid var(--border);
+
+      background: var(--surface);
+    }
+
+    .footer-inner {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .footer-inner strong {
+      display: block;
+
+      font-size: 13px;
+    }
+
+    .footer-inner span {
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .footer-inner > a {
+      color: var(--primary);
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       MODALS
+       ========================================================= */
+
+    .modal-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 500;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(20, 10, 25, 0.65);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(560px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      position: relative;
+
+      padding: 30px;
+
+      border-radius: 25px;
+
+      background: var(--surface);
+
+      box-shadow: 0 30px 100px rgba(0,0,0,0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 50%;
+
+      background: var(--surface);
+
+      color: var(--text);
+
+      font-size: 22px;
+    }
+
+    .modal h2 {
+      margin: 7px 0 20px;
+
+      font-size: 30px;
+    }
+
+    /* =========================================================
+       CART
+       ========================================================= */
+
+    .cart-items {
+      display: grid;
+
+      gap: 10px;
+
+      margin-bottom: 20px;
+    }
+
+    .cart-empty {
+      padding: 35px 10px;
+
+      color: var(--muted);
+
+      text-align: center;
+    }
+
+    .cart-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 10px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+    }
+
+    .cart-thumb {
+      width: 55px;
+      height: 55px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--p1),
+          var(--p2)
+        );
+
+      font-size: 27px;
+    }
+
+    .cart-details {
+      flex: 1;
+    }
+
+    .cart-details strong {
+      display: block;
+
+      font-size: 12px;
+    }
+
+    .cart-details small {
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .remove-btn {
+      padding: 7px 9px;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: #fee2e2;
+      color: #dc2626;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .cart-total {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 0;
+
+      border-top: 1px solid var(--border);
+
+      border-bottom: 1px solid var(--border);
+
+      margin-bottom: 15px;
+    }
+
+    .cart-total strong {
+      font-size: 20px;
+    }
+
+    /* =========================================================
+       PRODUCT DETAIL
+       ========================================================= */
+
+    .detail-image {
+      height: 280px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 25px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--p1),
+          var(--p2)
+        );
+
+      font-size: 90px;
+    }
+
+    .detail-description {
+      margin: 12px 0 20px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 25px;
+
+      z-index: 1000;
+
+      padding: 12px 18px;
+
+      border-radius: 12px;
+
+      background: #24182b;
+      color: white;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transform:
+        translate(-50%, 20px);
+
+      transition: 0.25s;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        position: absolute;
+
+        top: 76px;
+        left: 20px;
+        right: 20px;
+
+        display: grid;
+
+        padding: 18px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        background: var(--surface);
+
+        box-shadow: var(--shadow);
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .story-grid,
+      .custom-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        height: 400px;
+      }
+
+      .product-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .stat {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .story-grid {
+        gap: 45px;
+      }
+
+      .custom-grid {
+        gap: 45px;
+      }
+
+      .contact-grid {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(
+          100% - 28px,
+          1120px
+        );
+      }
+
+      .nav {
+        height: 68px;
+      }
+
+      .nav-links.open {
+        top: 68px;
+
+        left: 14px;
+        right: 14px;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .cart-text {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-trust {
+        gap: 20px;
+      }
+
+      .hero-art {
+        height: 330px;
+      }
+
+      .product-stage {
+        transform: scale(0.78);
+      }
+
+      .card-one {
+        left: 0;
+        top: 20px;
+      }
+
+      .card-two {
+        right: 0;
+        bottom: 20px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .text-link {
+        display: inline-block;
+
+        margin-top: 15px;
+      }
+
+      .product-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 10px;
+      }
+
+      .product-image {
+        height: 155px;
+
+        font-size: 48px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 13px;
+      }
+
+      .product-info p {
+        min-height: auto;
+
+        font-size: 10px;
+      }
+
+      .add-btn {
+        padding: 7px;
+
+        font-size: 9px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 20px;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-inner > a {
+        display: inline-block;
+
+        margin-top: 10px;
+      }
+
+      .modal {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       ANNOUNCEMENT
+       ======================================================= -->
+
+  <div class="announcement">
+    ✨ Custom orders are open — Message Gels Creation to start your order.
+  </div>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <nav class="nav container">
+
+      <a
+        href="#home"
+        class="brand"
+        aria-label="Gels Creation Home"
+      >
+
+        <span class="brand-logo">
+          G
+        </span>
+
+        <span>
+          <strong class="brand-name">
+            Gels Creation
+          </strong>
+
+          <small class="brand-tagline">
+            Creative • Custom • Made with Love
+          </small>
+        </span>
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#products">
+          Products
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#custom">
+          Custom Orders
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          title="Toggle dark mode"
+          aria-label="Toggle dark mode"
+        >
+          ☾
+        </button>
+
+        <button
+          class="cart-btn"
+          id="cartBtn"
+          aria-label="Open shopping cart"
+        >
+
+          🛒
+
+          <span class="cart-text">
+            Cart
+          </span>
+
+          <span
+            class="cart-count"
+            id="cartCount"
+          >
+            0
+          </span>
+
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <span class="eyebrow">
+            WELCOME TO GELS CREATION
+          </span>
+
+          <h1>
+            Small creations.
+            <br>
+
+            <span class="gradient-text">
+              Big personality.
+            </span>
+          </h1>
+
+          <p class="hero-description">
+            Discover thoughtfully made products and
+            personalized creations designed to make
+            every order feel a little more special.
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#products"
+              class="btn btn-primary"
+            >
+              Shop Creations →
+            </a>
+
+            <a
+              href="#custom"
+              class="btn btn-secondary"
+            >
+              Request Custom Order
+            </a>
+
+          </div>
+
+
+          <div class="hero-trust">
+
+            <div>
+              <strong>100%</strong>
+              <span>Made with care</span>
+            </div>
+
+            <div>
+              <strong>Custom</strong>
+              <span>Made for you</span>
+            </div>
+
+            <div>
+              <strong>PH</strong>
+              <span>Local creations</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO ART -->
+
+        <div
+          class="hero-art"
+          aria-label="Gels Creation featured product"
+        >
+
+          <div class="floating-card card-one">
+
+            <span>
+              ✨
+            </span>
+
+            <strong>
+              Made
+              <br>
+              with love
+            </strong>
+
+          </div>
+
+
+          <div class="product-stage">
+
+            <div class="stage-circle"></div>
+
+            <div class="fake-product">
+
+              <div class="fake-label">
+
+                GELS
+
+                <br>
+
+                <small>
+                  CREATION
+                </small>
+
+              </div>
+
+              <div class="fake-flower">
+                ✿
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card card-two">
+
+            <span>
+              ♡
+            </span>
+
+            <strong>
+              Custom
+              <br>
+              Creations
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STATS
+         ===================================================== -->
+
+    <section class="stats-strip">
+
+      <div class="container stats">
+
+        <div class="stat">
+          <strong>Creative</strong>
+          <span>Unique designs</span>
+        </div>
+
+        <div class="stat">
+          <strong>Personal</strong>
+          <span>Custom requests welcome</span>
+        </div>
+
+        <div class="stat">
+          <strong>Simple</strong>
+          <span>Easy ordering process</span>
+        </div>
+
+        <div class="stat">
+          <strong>Friendly</strong>
+          <span>Message us anytime</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRODUCTS
+         ===================================================== -->
+
+    <section
+      class="section"
+      id="products"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="eyebrow">
+              OUR COLLECTION
+            </span>
+
+            <h2>
+              Featured creations
+            </h2>
+
+            <p class="section-description">
+              Browse our featured creations.
+              Product names, prices and descriptions
+              can easily be changed in the JavaScript
+              section at the bottom.
+            </p>
+
+          </div>
+
+          <a
+            href="#contact"
+            class="text-link"
+          >
+            Need something custom? →
+          </a>
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filters">
+
+          <button
+            class="filter active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="filter"
+            data-filter="best"
+          >
+            Best Sellers
+          </button>
+
+          <button
+            class="filter"
+            data-filter="custom"
+          >
+            Custom
+          </button>
+
+          <button
+            class="filter"
+            data-filter="gift"
+          >
+            Gift Ideas
+          </button>
+
+        </div>
+
+
+        <!-- PRODUCTS WILL LOAD HERE -->
+
+        <div
+          class="product-grid"
+          id="productGrid"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section
+      class="section story"
+      id="about"
+    >
+
+      <div class="container story-grid">
+
+        <div class="story-art">
+
+          <div class="story-logo">
+            GELS
+            <br>
+            CREATION
+          </div>
+
+          <div class="story-orb orb-one"></div>
+          <div class="story-orb orb-two"></div>
+
+          <span class="story-star">
+            ✦
+          </span>
+
+          <span class="story-heart">
+            ♡
+          </span>
+
+        </div>
+
+
+        <div class="story-content">
+
+          <span class="eyebrow">
+            OUR STORY
+          </span>
+
+          <h2>
+            Created to make ordinary moments feel special.
+          </h2>
+
+          <p>
+            Gels Creation is a small creative brand
+            focused on thoughtful, attractive and
+            personalized creations.
+          </p>
+
+          <p>
+            Every order is prepared with attention
+            to detail and a little extra love.
+          </p>
+
+          <div class="check-list">
+
+            <div>
+              ✓ Thoughtful designs
+            </div>
+
+            <div>
+              ✓ Custom-friendly
+            </div>
+
+            <div>
+              ✓ Made with care
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CUSTOM ORDERS
+         ===================================================== -->
+
+    <section
+      class="section"
+      id="custom"
+    >
+
+      <div class="container custom-grid">
+
+        <div class="custom-content">
+
+          <span class="eyebrow">
+            CUSTOM ORDERS
+          </span>
+
+          <h2>
+            Have an idea?
+            <br>
+            Let's create it.
+          </h2>
+
+          <p>
+            Tell us what you have in mind.
+            Send your preferred design, color,
+            quantity, text, theme or inspiration.
+          </p>
+
+
+          <div class="process">
+
+            <div class="process-item">
+
+              <div class="process-number">
+                01
+              </div>
+
+              <div>
+                <strong>
+                  Send your idea
+                </strong>
+
+                <small>
+                  Message us with your request.
+                </small>
+              </div>
+
+            </div>
+
+
+            <div class="process-item">
+
+              <div class="process-number">
+                02
+              </div>
+
+              <div>
+                <strong>
+                  Confirm details
+                </strong>
+
+                <small>
+                  We'll discuss design, price and timeline.
+                </small>
+              </div>
+
+            </div>
+
+
+            <div class="process-item">
+
+              <div class="process-number">
+                03
+              </div>
+
+              <div>
+                <strong>
+                  We create it
+                </strong>
+
+                <small>
+                  Your custom creation is prepared.
+                </small>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CUSTOM FORM -->
+
+        <form
+          class="order-form"
+          id="customForm"
+        >
+
+          <h3>
+            Request a custom order
+          </h3>
+
+
+          <div class="form-group">
+
+            <label for="orderName">
+              Name
+            </label>
+
+            <input
+              class="form-control"
+              id="orderName"
+              required
+              placeholder="Your name"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="orderContact">
+              Contact / Messenger name
+            </label>
+
+            <input
+              class="form-control"
+              id="orderContact"
+              required
+              placeholder="How can we reach you?"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="orderItem">
+              What would you like?
+            </label>
+
+            <input
+              class="form-control"
+              id="orderItem"
+              required
+              placeholder="Product or custom idea"
+            >
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="orderQty">
+                Quantity
+              </label>
+
+              <input
+                class="form-control"
+                type="number"
+                id="orderQty"
+                min="1"
+                value="1"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="orderDate">
+                Preferred date
+              </label>
+
+              <input
+                class="form-control"
+                type="date"
+                id="orderDate"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="orderDetails">
+              Details
+            </label>
+
+            <textarea
+              class="form-control"
+              id="orderDetails"
+              rows="4"
+              placeholder="Colors, size, text, theme, reference, etc."
+            ></textarea>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary btn-full"
+            type="submit"
+          >
+            Prepare Messenger Message →
+          </button>
+
+
+          <small class="form-note">
+            Your request will be prepared as a Messenger message.
+          </small>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+         ===================================================== -->
+
+    <section
+      class="section faq-section"
+      id="faq"
+    >
+
+      <div class="container narrow">
+
+        <div class="section-heading centered">
+
+          <span class="eyebrow">
+            QUESTIONS
+          </span>
+
+          <h2>
+            Frequently asked
+          </h2>
+
+        </div>
+
+
+        <div class="faq-list">
+
+          <details class="faq-item">
+
+            <summary>
+              How do I place an order?
+            </summary>
+
+            <p>
+              Choose a product, add it to your cart,
+              then use the Messenger checkout button.
+            </p>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Can I request a custom design?
+            </summary>
+
+            <p>
+              Yes. Use our Custom Orders form and
+              provide your preferred design, colors,
+              quantity and other details.
+            </p>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              How long does a custom order take?
+            </summary>
+
+            <p>
+              Production time depends on the product,
+              quantity and design. Message us for the
+              current estimated turnaround.
+            </p>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Where do you deliver?
+            </summary>
+
+            <p>
+              Replace this text with your actual
+              delivery areas, shipping partners and
+              pickup options.
+            </p>
+
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="cta">
+
+      <div class="container cta-inner">
+
+        <div>
+
+          <span class="eyebrow">
+            READY TO ORDER?
+          </span>
+
+          <h2>
+            Let's make something beautiful.
+          </h2>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="btn btn-white"
+        >
+          Contact Gels Creation →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <section
+      class="section"
+      id="contact"
+    >
+
+      <div class="container contact-grid">
+
+        <div class="contact-content">
+
+          <span class="eyebrow">
+            GET IN TOUCH
+          </span>
+
+          <h2>
+            Let's talk about your next creation.
+          </h2>
+
+          <p>
+            For orders, custom requests,
+            availability and pricing, message us
+            through your preferred channel.
+          </p>
+
+
+          <div class="contact-cards">
+
+            <a
+              class="contact-card"
+              id="facebookLink"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <span class="contact-icon">
+                f
+              </span>
+
+              <div>
+
+                <strong>
+                  Facebook
+                </strong>
+
+                <small>
+                  Visit our page
+                </small>
+
+              </div>
+
+              <b>
+                →
+              </b>
+
+            </a>
+
+
+            <a
+              class="contact-card"
+              id="messengerLink"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <span class="contact-icon">
+                ✉
+              </span>
+
+              <div>
+
+                <strong>
+                  Messenger
+                </strong>
+
+                <small>
+                  Send us a message
+                </small>
+
+              </div>
+
+              <b>
+                →
+              </b>
+
+            </a>
+
+
+            <a
+              class="contact-card"
+              id="emailLink"
+              href="#"
+            >
+
+              <span class="contact-icon">
+                @
+              </span>
+
+              <div>
+
+                <strong>
+                  Email
+                </strong>
+
+                <small id="emailText">
+                  hello@gelscreation.com
+                </small>
+
+              </div>
+
+              <b>
+                →
+              </b>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-note">
+
+          <div class="mini-logo">
+            G
+          </div>
+
+          <h3>
+            Gels Creation
+          </h3>
+
+          <p>
+            Creative products • Custom creations • Gift ideas
+          </p>
+
+          <div class="social-row">
+
+            <a
+              id="facebookLink2"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Facebook
+            </a>
+
+            <a
+              id="messengerLink2"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Messenger
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+
+        <strong>
+          Gels Creation
+        </strong>
+
+        <span>
+          © <span id="year"></span>
+          All rights reserved.
+        </span>
+
+      </div>
+
+      <a href="#home">
+        Back to top ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       CART MODAL
+       ======================================================= -->
+
+  <div
+    class="modal-overlay"
+    id="cartModal"
+  >
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        data-close="cartModal"
+      >
+        ×
+      </button>
+
+      <span class="eyebrow">
+        YOUR CART
+      </span>
+
+      <h2>
+        Your creations
+      </h2>
+
+
+      <div
+        class="cart-items"
+        id="cartItems"
+      ></div>
+
+
+      <div class="cart-total">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          ₱0
+        </strong>
+
+      </div>
+
+
+      <button
+        class="btn btn-primary btn-full"
+        id="checkoutBtn"
+      >
+        Checkout via Messenger →
+      </button>
+
+
+      <br>
+
+
+      <button
+        class="btn btn-secondary btn-full"
+        data-close="cartModal"
+      >
+        Continue Shopping
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       PRODUCT MODAL
+       ======================================================= -->
+
+  <div
+    class="modal-overlay"
+    id="productModal"
+  >
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        data-close="productModal"
+      >
+        ×
+      </button>
+
+      <div id="productDetail"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    Added to cart!
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+
+    /* ========================================================
+       GELS CREATION CONFIGURATION
+       CHANGE THESE VALUES
+       ======================================================== */
+
+    const CONFIG = {
+
+      /*
+        PUT YOUR REAL FACEBOOK PAGE HERE
+      */
+
+      facebook:
+        "https://www.facebook.com/YOUR_PAGE_NAME",
+
+
+      /*
+        PUT YOUR REAL MESSENGER LINK HERE
+
+        Example:
+
+        https://m.me/YOUR_PAGE_USERNAME
+      */
+
+      messenger:
+        "https://m.me/YOUR_PAGE_USERNAME",
+
+
+      /*
+        PUT YOUR REAL EMAIL HERE
+      */
+
+      email:
+        "hello@gelscreation.com"
+
+    };
+
+
+    /* ========================================================
+       PRODUCTS
+
+       Change these sample products to your REAL products.
+       ======================================================== */
+
+    const products = [
+
+      {
+        id: 1,
+        name: "Signature Creation",
+        price: 199,
+        category: "best",
+        emoji: "🎀",
+        badge: "BEST SELLER",
+        description:
+          "A beautiful sample item for your featured collection.",
+        p1: "#f3d7ff",
+        p2: "#ffd9e9"
+      },
+
+      {
+        id: 2,
+        name: "Custom Gift Set",
+        price: 349,
+        category: "gift",
+        emoji: "🎁",
+        badge: "POPULAR",
+        description:
+          "A thoughtful gift idea that can be personalized.",
+        p1: "#ffe0ec",
+        p2: "#e8d8ff"
+      },
+
+      {
+        id: 3,
+        name: "Personalized Piece",
+        price: 249,
+        category: "custom",
+        emoji: "💖",
+        badge: "CUSTOM",
+        description:
+          "Made around your preferred theme, colors and details.",
+        p1: "#e2dcff",
+        p2: "#ffdbe8"
+      },
+
+      {
+        id: 4,
+        name: "Mini Creation",
+        price: 99,
+        category: "best",
+        emoji: "🌸",
+        badge: "BEST SELLER",
+        description:
+          "A simple little creation that's easy to love or gift.",
+        p1: "#ffe4d3",
+        p2: "#f0dcff"
+      },
+
+      {
+        id: 5,
+        name: "Sweet Gift Idea",
+        price: 299,
+        category: "gift",
+        emoji: "✨",
+        badge: "GIFT IDEA",
+        description:
+          "A charming present for birthdays and special moments.",
+        p1: "#ffdce9",
+        p2: "#e1ddff"
+      },
+
+      {
+        id: 6,
+        name: "Name / Text Custom",
+        price: 179,
+        category: "custom",
+        emoji: "🔤",
+        badge: "CUSTOM",
+        description:
+          "Personalize your creation with a name, text or message.",
+        p1: "#e7dcff",
+        p2: "#ffe1ef"
+      },
+
+      {
+        id: 7,
+        name: "Lovely Bundle",
+        price: 399,
+        category: "gift",
+        emoji: "💐",
+        badge: "GIFT IDEA",
+        description:
+          "A bundle-style creation perfect for celebrations.",
+        p1: "#ffe1cf",
+        p2: "#e6ddff"
+      },
+
+      {
+        id: 8,
+        name: "Everyday Favorite",
+        price: 149,
+        category: "best",
+        emoji: "🩷",
+        badge: "POPULAR",
+        description:
+          "A sample everyday creation for the collection.",
+        p1: "#f7d9ff",
+        p2: "#ffdfdf"
+      }
+
+    ];
+
+
+    /* ========================================================
+       CART
+       ======================================================== */
+
+    let cart =
+      JSON.parse(
+        localStorage.getItem(
+          "gelsCreationCart"
+        ) || "[]"
+      );
+
+
+    /* ========================================================
+       HELPERS
+       ======================================================== */
+
+    const $ = selector =>
+      document.querySelector(selector);
+
+    const $$ = selector =>
+      document.querySelectorAll(selector);
+
+
+    function peso(number) {
+
+      return (
+        "₱" +
+        Number(number).toLocaleString(
+          "en-PH"
+        )
+      );
+
+    }
+
+
+    /* ========================================================
+       RENDER PRODUCTS
+       ======================================================== */
+
+    function renderProducts(
+      filter = "all"
+    ) {
+
+      const list =
+        filter === "all"
+          ? products
+          : products.filter(
+              product =>
+                product.category === filter
+            );
+
+
+      $("#productGrid").innerHTML =
+        list.map(product => `
+
+          <article
+            class="product-card"
+          >
+
+            <div
+              class="product-image"
+              data-product="${product.id}"
+              style="
+                --p1:${product.p1};
+                --p2:${product.p2};
+              "
+            >
+
+              <span class="product-badge">
+                ${product.badge}
+              </span>
+
+              ${product.emoji}
+
+            </div>
+
+
+            <div class="product-info">
+
+              <h3>
+                ${product.name}
+              </h3>
+
+              <p>
+                ${product.description}
+              </p>
+
+
+              <div class="product-bottom">
+
+                <span class="price">
+                  ${peso(product.price)}
+                </span>
+
+                <button
+                  class="add-btn"
+                  data-add="${product.id}"
+                >
+                  + Add
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `).join("");
+
+
+      $$("[data-add]")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              addToCart(
+                Number(
+                  button.dataset.add
+                )
+              );
+
+            }
+          );
+
+        });
+
+
+      $$("[data-product]")
+        .forEach(image => {
+
+          image.addEventListener(
+            "click",
+            () => {
+
+              openProduct(
+                Number(
+                  image.dataset.product
+                )
+              );
+
+            }
+          );
+
+        });
+
+    }
+
+
+    /* ========================================================
+       ADD TO CART
+       ======================================================== */
+
+    function addToCart(id) {
+
+      const existing =
+        cart.find(
+          item =>
+            item.id === id
+        );
+
+
+      if (existing) {
+
+        existing.qty++;
+
+      } else {
+
+        cart.push({
+          id: id,
+          qty: 1
+        });
+
+      }
+
+
+      saveCart();
+
+      showToast(
+        "Added to cart! ✨"
+      );
+
+    }
+
+
+    /* ========================================================
+       SAVE CART
+       ======================================================== */
+
+    function saveCart() {
+
+      localStorage.setItem(
+        "gelsCreationCart",
+        JSON.stringify(cart)
+      );
+
+      updateCartCount();
+
+    }
+
+
+    /* ========================================================
+       CART COUNT
+       ======================================================== */
+
+    function updateCartCount() {
+
+      const count =
+        cart.reduce(
+          (total, item) =>
+            total + item.qty,
+          0
+        );
+
+
+      $("#cartCount")
+        .textContent = count;
+
+    }
+
+
+    /* ========================================================
+       RENDER CART
+       ======================================================== */
+
+    function renderCart() {
+
+      const container =
+        $("#cartItems");
+
+
+      if (!cart.length) {
+
+        container.innerHTML = `
+
+          <div class="cart-empty">
+
+            Your cart is empty.
+
+            <br>
+
+            Add a creation to get started. ✨
+
+          </div>
+
+        `;
+
+        $("#cartTotal")
+          .textContent = peso(0);
+
+        return;
+
+      }
+
+
+      let total = 0;
+
+
+      container.innerHTML =
+        cart.map(item => {
+
+          const product =
+            products.find(
+              p =>
+                p.id === item.id
+            );
+
+
+          const subtotal =
+            product.price *
+            item.qty;
+
+
+          total += subtotal;
+
+
+          return `
+
+            <div
+              class="cart-item"
+            >
+
+              <div
+                class="cart-thumb"
+                style="
+                  --p1:${product.p1};
+                  --p2:${product.p2};
+                "
+              >
+                ${product.emoji}
+              </div>
+
+
+              <div class="cart-details">
+
+                <strong>
+                  ${product.name}
+                </strong>
+
+                <small>
+                  ${product.qty || item.qty}
+                  × ${peso(product.price)}
+                </small>
+
+                <br>
+
+                <small>
+                  Subtotal:
+                  ${peso(subtotal)}
+                </small>
+
+              </div>
+
+
+              <button
+                class="remove-btn"
+                data-remove="${product.id}"
+              >
+                Remove
+              </button>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+
+      $("#cartTotal")
+        .textContent = peso(total);
+
+
+      $$("[data-remove]")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              cart =
+                cart.filter(
+                  item =>
+                    item.id !==
+                    Number(
+                      button.dataset.remove
+                    )
+                );
+
+
+              saveCart();
+
+              renderCart();
+
+            }
+          );
+
+        });
+
+    }
+
+
+    /* ========================================================
+       OPEN CART
+       ======================================================== */
+
+    function openCart() {
+
+      renderCart();
+
+      $("#cartModal")
+        .classList.add("active");
+
+      document.body
+        .classList.add("modal-open");
+
+    }
+
+
+    /* ========================================================
+       PRODUCT DETAILS
+       ======================================================== */
+
+    function openProduct(id) {
+
+      const product =
+        products.find(
+          p => p.id === id
+        );
+
+
+      $("#productDetail")
+        .innerHTML = `
+
+          <div
+            class="detail-image"
+            style="
+              --p1:${product.p1};
+              --p2:${product.p2};
+            "
+          >
+            ${product.emoji}
+          </div>
+
+
+          <span class="eyebrow">
+            ${product.badge}
+          </span>
+
+
+          <h2>
+            ${product.name}
+          </h2>
+
+
+          <strong class="price">
+            ${peso(product.price)}
+          </strong>
+
+
+          <p class="detail-description">
+            ${product.description}
+          </p>
+
+
+          <button
+            class="btn btn-primary btn-full"
+            id="detailAddBtn"
+          >
+            Add to Cart →
+          </button>
+
+        `;
+
+
+      $("#productModal")
+        .classList.add("active");
+
+      document.body
+        .classList.add("modal-open");
+
+
+      $("#detailAddBtn")
+        .addEventListener(
+          "click",
+          () => {
+
+            addToCart(product.id);
+
+            closeModal(
+              "productModal"
+            );
+
+          }
+        );
+
+    }
+
+
+    /* ========================================================
+       CLOSE MODAL
+       ======================================================== */
+
+    function closeModal(id) {
+
+      $("#" + id)
+        .classList.remove(
+          "active"
+        );
+
+      document.body
+        .classList.remove(
+          "modal-open"
+        );
+
+    }
+
+
+    /* ========================================================
+       TOAST
+       ======================================================== */
+
+    let toastTimer;
+
+
+    function showToast(message) {
+
+      const toast =
+        $("#toast");
+
+
+      toast.textContent =
+        message;
+
+
+      toast.classList.add(
+        "show"
+      );
+
+
+      clearTimeout(
+        toastTimer
+      );
+
+
+      toastTimer =
+        setTimeout(
+          () => {
+
+            toast.classList.remove(
+              "show"
+            );
+
+          },
+          1800
+        );
+
+    }
+
+
+    /* ========================================================
+       CHECKOUT VIA MESSENGER
+       ======================================================== */
+
+    function checkout() {
+
+      if (!cart.length) {
+
+        showToast(
+          "Your cart is empty."
+        );
+
+        return;
+
+      }
+
+
+      const lines =
+        cart.map(item => {
+
+          const product =
+            products.find(
+              p =>
+                p.id === item.id
+            );
+
+
+          return (
+            "• " +
+            product.name +
+            " x" +
+            item.qty +
+            " — " +
+            peso(
+              product.price *
+              item.qty
+            )
+          );
+
+        }).join("\n");
+
+
+      const total =
+        cart.reduce(
+          (sum, item) => {
+
+            const product =
+              products.find(
+                p =>
+                  p.id === item.id
+              );
+
+            return (
+              sum +
+              product.price *
+              item.qty
+            );
+
+          },
+          0
+        );
+
+
+      const message =
+`Hello Gels Creation! 👋
+
+I would like to order:
+
+${lines}
+
+Total: ${peso(total)}
+
+Please let me know the availability and next steps.
+
+Thank you! 💜`;
+
+
+      const url =
+        CONFIG.messenger +
+        "?text=" +
+        encodeURIComponent(
+          message
+        );
+
+
+      window.open(
+        url,
+        "_blank"
+      );
+
+    }
+
+
+    /* ========================================================
+       CUSTOM ORDER
+       ======================================================== */
+
+    function prepareCustomOrder(event) {
+
+      event.preventDefault();
+
+
+      const name =
+        $("#orderName")
+          .value.trim();
+
+
+      const contact =
+        $("#orderContact")
+          .value.trim();
+
+
+      const item =
+        $("#orderItem")
+          .value.trim();
+
+
+      const quantity =
+        $("#orderQty")
+          .value;
+
+
+      const date =
+        $("#orderDate")
+          .value ||
+        "Not specified";
+
+
+      const details =
+        $("#orderDetails")
+          .value.trim() ||
+        "No additional details.";
+
+
+      const message =
+`Hello Gels Creation! 👋
+
+CUSTOM ORDER REQUEST
+
+Name:
+${name}
+
+Contact:
+${contact}
+
+Item / Idea:
+${item}
+
+Quantity:
+${quantity}
+
+Preferred Date:
+${date}
+
+Details:
+${details}
+
+Thank you! 💜`;
+
+
+      const url =
+        CONFIG.messenger +
+        "?text=" +
+        encodeURIComponent(
+          message
+        );
+
+
+      window.open(
+        url,
+        "_blank"
+      );
+
+    }
+
+
+    /* ========================================================
+       CONTACT LINKS
+       ======================================================== */
+
+    function setupLinks() {
+
+      $("#facebookLink")
+        .href =
+        CONFIG.facebook;
+
+
+      $("#facebookLink2")
+        .href =
+        CONFIG.facebook;
+
+
+      $("#messengerLink")
+        .href =
+        CONFIG.messenger;
+
+
+      $("#messengerLink2")
+        .href =
+        CONFIG.messenger;
+
+
+      $("#emailLink")
+        .href =
+        "mailto:" +
+        CONFIG.email;
+
+
+      $("#emailText")
+        .textContent =
+        CONFIG.email;
+
+    }
+
+
+    /* ========================================================
+       PRODUCT FILTER
+       ======================================================== */
+
+    $$(".filter")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            $$(".filter")
+              .forEach(
+                item =>
+                  item.classList
+                    .remove("active")
+              );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            renderProducts(
+              button.dataset.filter
+            );
+
+          }
+        );
+
+      });
+
+
+    /* ========================================================
+       MENU
+       ======================================================== */
+
+    $("#menuBtn")
+      .addEventListener(
+        "click",
+        () => {
+
+          $("#navLinks")
+            .classList.toggle(
+              "open"
+            );
+
+        }
+      );
+
+
+    /* Close mobile menu after clicking */
+
+    $$("#navLinks a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            $("#navLinks")
+              .classList.remove(
+                "open"
+              );
+
+          }
+        );
+
+      });
+
+
+    /* ========================================================
+       CART
+       ======================================================== */
+
+    $("#cartBtn")
+      .addEventListener(
+        "click",
+        openCart
+      );
+
+
+    $("#checkoutBtn")
+      .addEventListener(
+        "click",
+        checkout
+      );
+
+
+    /* ========================================================
+       CUSTOM FORM
+       ======================================================== */
+
+    $("#customForm")
+      .addEventListener(
+        "submit",
+        prepareCustomOrder
+      );
+
+
+    /* ========================================================
+       MODAL CLOSE BUTTONS
+       ======================================================== */
+
+    $$("[data-close]")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            closeModal(
+              button.dataset.close
+            );
+
+          }
+        );
+
+      });
+
+
+    /* Click outside modal */
+
+    $$(".modal-overlay")
+      .forEach(overlay => {
+
+        overlay.addEventListener(
+          "click",
+          event => {
+
+            if (
+              event.target ===
+              overlay
+            ) {
+
+              closeModal(
+                overlay.id
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* ========================================================
+       ESCAPE KEY
+       ======================================================== */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          $$(".modal-overlay")
+            .forEach(modal => {
+
+              modal.classList.remove(
+                "active"
+              );
+
+            });
+
+
+          document.body
+            .classList.remove(
+              "modal-open"
+            );
+
+        }
+
+      }
+    );
+
+
+    /* ========================================================
+       DARK / LIGHT MODE
+       ======================================================== */
+
+    $("#themeBtn")
+      .addEventListener(
+        "click",
+        () => {
+
+          const isDark =
+            document.documentElement
+              .getAttribute(
+                "data-theme"
+              ) === "dark";
+
+
+          const newTheme =
+            isDark
+              ? "light"
+              : "dark";
+
+
+          document.documentElement
+            .setAttribute(
+              "data-theme",
+              newTheme
+            );
+
+
+          localStorage.setItem(
+            "gelsCreationTheme",
+            newTheme
+          );
+
+
+          $("#themeBtn")
+            .textContent =
+            newTheme === "dark"
+              ? "☀"
+              : "☾";
+
+        }
+      );
+
+
+    /* ========================================================
+       LOAD SAVED THEME
+       ======================================================== */
+
+    const savedTheme =
+      localStorage.getItem(
+        "gelsCreationTheme"
+      );
+
+
+    if (savedTheme) {
+
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          savedTheme
+        );
+
+
+      $("#themeBtn")
+        .textContent =
+        savedTheme === "dark"
+          ? "☀"
+          : "☾";
+
+    }
+
+
+    /* ========================================================
+       YEAR
+       ======================================================== */
+
+    $("#year")
+      .textContent =
+      new Date()
+        .getFullYear();
+
+
+    /* ========================================================
+       INITIALIZE
+       ======================================================== */
+
+    setupLinks();
+
+    renderProducts();
+
+    updateCartCount();
+
+  </script>
+
+</body>
+</html>
